@@ -33,6 +33,9 @@ app.use(setHeaders);
 app.use(express.static(path.join(__dirname, "public")));
 
 
+app.get("/", (req, res) => {
+  res.json({ message: "welcome to educate api" })
+})
 
 //* Routes
 app.use("/v1/articles", articlesRoutes);
