@@ -30,7 +30,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(setHeaders);
 
 //* Static Folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, ".." ,"public")));
 
 
 app.get("/", (req, res) => {
