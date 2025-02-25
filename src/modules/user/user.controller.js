@@ -1,7 +1,7 @@
 const userModel = require("../../models/user");
 const banUserModel = require("../../models/ban-phone");
 const courseUserModel = require("../../models/course-user");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 exports.getAll = async (req, res, next) => {
   try {

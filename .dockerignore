@@ -1,0 +1,4 @@
+node_modules
+.env
+.git
+docker-compose.override.yml

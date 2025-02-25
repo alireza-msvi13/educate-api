@@ -38,21 +38,21 @@ app.get("/", (req, res) => {
 })
 
 //* Routes
-app.use("/v1/articles", articlesRoutes);
-app.use("/v1/auth", authRoutes);
-app.use("/v1/category", categoryRoutes);
-app.use("/v1/comments", commentsRoutes);
-app.use("/v1/contact", contactRoutes);
-app.use("/v1/courses", courseRoutes);
-app.use("/v1/infos", infosRoutes);
-app.use("/v1/menus", menuRoutes);
-app.use("/v1/newsletters", newslettersRoutes);
-app.use("/v1/notifications", notificationRoutes);
-app.use("/v1/offs", offsRoutes);
-app.use("/v1/orders", ordersRoutes);
-app.use("/v1/search", searchRoutes);
-app.use("/v1/tickets", ticketsRoutes);
-app.use("/v1/users", usersRoutes);
+app.use("/articles", articlesRoutes);
+app.use("/auth", authRoutes);
+app.use("/category", categoryRoutes);
+app.use("/comments", commentsRoutes);
+app.use("/contact", contactRoutes);
+app.use("/courses", courseRoutes);
+app.use("/infos", infosRoutes);
+app.use("/menus", menuRoutes);
+app.use("/newsletters", newslettersRoutes);
+app.use("/notifications", notificationRoutes);
+app.use("/offs", offsRoutes);
+app.use("/orders", ordersRoutes);
+app.use("/search", searchRoutes);
+app.use("/tickets", ticketsRoutes);
+app.use("/users", usersRoutes);
 
 //* Error Controller
 app.use((req, res) => {
