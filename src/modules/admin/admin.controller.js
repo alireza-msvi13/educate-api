@@ -1,32 +1,7 @@
 const courseModel = require("../../models/course");
 const userModel = require("../../models/user");
-const infosModel = require("../../models/infos");
 const sessionModel = require("../../models/session");
 const courseUserModel = require("../../models/course-user");
-
-exports.getIndex = async (req, res, next) => {
-  try {
-    const allInfos = await infosModel.find();
-    const coursesCount = await courseModel.find().lean().count();
-    const usersCount = await userModel.find().lean().count();
-    const sessions = await sessionModel.find().lean();
-
-    const totalTime = sessions.reduce(
-      (prev, current) => prev + Number(current.time.slice(0, 2)),
-      0
-    );
-
-    res.json({
-      phone: allInfos[0].phone,
-      email: allInfos[0].email,
-      coursesCount,
-      usersCount,
-      totalTime,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
 
 exports.getPAdmin = async (req, res, next) => {
   try {
@@ -42,15 +17,15 @@ exports.getPAdmin = async (req, res, next) => {
       infos: [
         {
           count: coursesRegistersCount,
-          title: "ثبت نامی‌ها",
+          title: "registers",
         },
         {
           count: coursesCount,
-          title: "دوره‌ها",
+          title: "courses",
         },
         {
           count: sessionsCount,
-          title: "جلسات",
+          title: "sessions",
         },
       ],
       lastUsers: users,

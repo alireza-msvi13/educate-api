@@ -66,7 +66,7 @@ exports.asnwer = async (req, res, next) => {
       if (error) {
         res.json({ message: error });
       } else {
-        res.json({ message: "Email sent succesfully :))" });
+        res.json({ message: "Email sent succesfully" });
       }
     });
   } catch (error) {

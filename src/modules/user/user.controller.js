@@ -1,5 +1,5 @@
 const userModel = require("../../models/user");
-const banUserModel = require("../../models/ban-phone");
+const banUserModel = require("../../models/ban");
 const courseUserModel = require("../../models/course-user");
 const bcrypt = require("bcryptjs");
 

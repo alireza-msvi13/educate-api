@@ -26,10 +26,10 @@ module.exports = async (req, res, next) => {
     next();
   } catch (error) {
     if (error instanceof jwt.TokenExpiredError) {
-      error.message = "توکن منقضی شده است";
+      error.message = "token is not valid";
       error.statusCode = 401;
     } else if (error instanceof jwt.JsonWebTokenError) {
-      error.message = "توکن نامعتبر است";
+      error.message = "token is not valid";
       error.statusCode = 401;
     } else {
       error.message = "Unexpected error";

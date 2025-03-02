@@ -13,9 +13,6 @@ router
 
 router.route("/user").get(authenticatedMiddleware, controller.userTickets);
 
-router.route("/departments").get(controller.departments);
-router.route("/departments-subs/:id").get(controller.departmentsSubs);
-
 router
   .route("/answer")
   .post(authenticatedMiddleware, isAdminMiddleware, controller.setAnswer);

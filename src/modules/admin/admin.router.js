@@ -2,12 +2,9 @@ const express = require("express");
 
 const isAdminMiddleware = require("../../middlewares/isAdmin");
 const authenticatedMiddleware = require("../../middlewares/authenticated");
-const controller = require("./infos.controller");
+const controller = require("./admin.controller");
 
 const router = express.Router();
-
-router.route("/index").get(controller.getIndex);
-
 router
   .route("/p-admin")
   .get(authenticatedMiddleware, isAdminMiddleware, controller.getPAdmin);

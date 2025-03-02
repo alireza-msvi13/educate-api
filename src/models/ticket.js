@@ -2,22 +2,11 @@ const mongoose = require("mongoose");
 const {
   getAnswerValidator,
   createTicketValidator,
-  departmentsSubsValidator,
   setAnswerValidator,
 } = require("../modules/ticket/ticket.validator");
 
 const ticketSchema = new mongoose.Schema(
   {
-    departmentID: {
-      type: mongoose.Types.ObjectId,
-      required: true,
-      ref: "Department",
-    },
-    departmentSubID: {
-      type: mongoose.Types.ObjectId,
-      required: true,
-      ref: "DepartmentSub",
-    },
     priority: {
       type: Number,
       required: true,
@@ -67,9 +56,6 @@ ticketSchema.statics.getAnswerValidation = function (body) {
 };
 ticketSchema.statics.setAnswerValidation = function (body) {
   return setAnswerValidator.validate(body, { abortEarly: false });
-};
-ticketSchema.statics.departmentsSubsValidation = function (body) {
-  return departmentsSubsValidator.validate(body, { abortEarly: false });
 };
 
 const model = mongoose.model("Ticket", ticketSchema);

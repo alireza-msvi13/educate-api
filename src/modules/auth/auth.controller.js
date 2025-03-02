@@ -3,8 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const userModel = require("../../models/user");
 const courseUserModel = require("../../models/course-user");
-const banUserModel = require("../../models/ban-phone");
-const notificationsModel = require("../../models/notification");
+const banUserModel = require("../../models/ban");
 
 exports.register = async (req, res, next) => {
   try {
@@ -104,22 +103,7 @@ exports.getMe = async (req, res, next) => {
       courses.push(userCourse.course);
     }
 
-    const adminNotifications = await notificationsModel.find({
-      admin: req.user._id,
-    });
-
-    const notifications = [];
-
-    for (const adminNotification of adminNotifications) {
-      if (adminNotification.see === 0) {
-        notifications.push({
-          msg: adminNotification.msg,
-          _id: adminNotification._id,
-        });
-      }
-    }
-
-    return res.json({ ...req.user, courses, notifications });
+    return res.json({ ...req.user, courses });
   } catch (error) {
     next(error);
   }
